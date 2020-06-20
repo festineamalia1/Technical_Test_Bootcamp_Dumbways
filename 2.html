@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>verifikasi password</title>
+	<script type="text/javascript">
+		function validasi(form){
+			if(form.pass.value.length == 0) {
+				alert("Masukkan password Anda");
+				return false;
+			}
+			if(form.pass.value.length < 8){
+				alert("password harus sedikitnya 8 karakter");
+				return false;
+			}
+			
+			for (var i = 0; i < form.pass.value.length; i ++){
+				var pola="^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,}$"
+			if(!pola.test(form.pass.value.charAt(i))){
+				 alert (' minimal 8 karakter dan hanya boleh Huruf atau Angka!');
+      form.pass.focus();
+      return false;
+			}
+				var ch = form.pass.value.charAt(i);
+				if((ch < "A" || ch > "Z") && (ch < "a" || ch > "z") && (ch < "0" || ch > "9")){
+					alert("password memuat karakter - karakter ilegal");
+					return false;
+				}
+			}
+			alert("password OK!");
+			return true;
+		}
+	</script>
+</head>
+<body>
+	<font face="verdana">
+		<b>
+			<div align="center">
+				<form name="periksa_password" onSubmit="return validasi(this);">
+					password Anda:
+					<br />
+					<input type="password" id="pass" name="pass" size="33" />
+					<p>
+						<input type="submit" name="" value="Submit">
+						<input type="reset">
+					</p>
+				</form>
+			</div>
+		</b>
+	</font>
+</body>
+</html>
