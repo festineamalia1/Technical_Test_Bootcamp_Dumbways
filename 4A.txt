@@ -1,0 +1,18 @@
+SELECT * FROM game_tbl WHERE genre_id=2;
+
+SELECT game_tbl.*, genre.name, transaction.stock from game_tbl JOIN genre on game_tbl.genre_id=genre.genre_id join transaction ON game_tbl.game_id=transaction.game_id
+
+
+Pada genre dapat menambah jenis genre lagi yakni "adventure"
+INSERT INTO `genre` (`genre_id`, `name`) VALUES
+(1, 'gore'),
+(2, 'horor'),
+(3, 'adventure');
+
+Pada genre dapat menambah jenis game lagi yakni "The Walking Dead"
+INSERT INTO `game_tbl` (`game_id`, `title`, `image`, `genre_id`) VALUES
+(12, 'killing floor', 'sasa', 1),
+(13, 'dreadout', 'sasas', 2),
+(14, 'granny', 'dsds', 2),
+(15, 'The Walking Dead', 'Walking.jpg', 3);
+
